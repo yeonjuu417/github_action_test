@@ -12,12 +12,13 @@ env:
   password: ${{ github.event.inputs.password }}
 jobs:
   test:
-    if: ${{ github.event.inputs.password }} == &{{secrets.TEST_PASSWORD}}
     name: test
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: start API
+      - name: Check password
+        if: ${{env.password}} == ${{secrets.TEST_PASSWORD}}
         run: |
+          echo "::$github.event.inputs.password"
           echo hihi
