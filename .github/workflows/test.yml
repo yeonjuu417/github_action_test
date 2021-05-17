@@ -20,5 +20,4 @@ jobs:
       - name: Check password
         if: ${{env.password}} == ${{secrets.TEST_PASSWORD}}
         run: |
-          echo "::$github.event.inputs.password"
           echo hihi
