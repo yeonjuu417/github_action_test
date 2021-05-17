@@ -8,8 +8,6 @@ on:
       password:
         required: true
         description: prod upload password
-env:
-  password: ${{ github.event.inputs.password }}
 jobs:
   test:
     name: test
@@ -18,6 +16,8 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Check password
-        if: ${{env.password}} == 1234
-        run: |
-          echo hihi
+        # env:
+        #   password: ${{ github.event.inputs.password }}
+        #   secrets_password: ${{secrets.TEST_PASSWORD}}
+        if: ${{github.event.inputs.password}} == ${{secrets.TEST_PASSWORD}}
+        run: echo hihi
