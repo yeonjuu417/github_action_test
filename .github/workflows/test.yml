@@ -19,7 +19,7 @@ jobs:
         env:
           password: ${{ github.event.inputs.password }}
           secrets_password: ${{secrets.TEST_PASSWORD}}
-        if: ${{env.password}} == ${{env.secrets_password}}
+        if: ${{env.password}} == '1111'
         run: |
           echo hihi
           echo "$secrets_password"
