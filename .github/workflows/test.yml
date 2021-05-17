@@ -16,8 +16,10 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Check password
-        # env:
-        #   password: ${{ github.event.inputs.password }}
-        #   secrets_password: ${{secrets.TEST_PASSWORD}}
-        if: ${{github.event.inputs.password}} == ${{secrets.TEST_PASSWORD}}
-        run: echo hihi
+        env:
+          password: ${{ github.event.inputs.password }}
+          secrets_password: ${{secrets.TEST_PASSWORD}}
+        if: ${{env.password}} == ${{env.secrets_password}}
+        run: |
+          echo hihi
+          echo "$secrets_password"
