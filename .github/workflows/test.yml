@@ -1,13 +1,9 @@
-name: "test(master)"
+name: "test(dev)"
 
 on:
   schedule:
     - cron: "0 */2 * * *"
   workflow_dispatch:
-    inputs:
-      password:
-        required: true
-        description: prod upload password
 jobs:
   test:
     name: test
