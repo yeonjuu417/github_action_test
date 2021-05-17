@@ -1,4 +1,4 @@
-name: "test(master)"
+name: "test2(master)"
 
 on:
   schedule:
